@@ -1,0 +1,10 @@
+.feedback{
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+.feedback h2{
+    margin-bottom: 20px;
+}
