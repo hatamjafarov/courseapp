@@ -13,7 +13,6 @@ const Register = () => {
         "https://course-app-b602d-default-rtdb.firebaseio.com/accounts.json";
 
     const isValid = (value) => value.trim().length > 3;
-    const checker = [];
     var statusOK = false;
 
     const nameRef = useRef();
@@ -81,8 +80,6 @@ const Register = () => {
             setSuccess(false);
             setSending(false);
         }
-
-
         setPassValid(true);
     };
 

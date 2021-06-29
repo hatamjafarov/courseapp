@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .header li {
@@ -41,4 +41,17 @@
 .header li:active,
 .header li.active {
     color: white;
+}
+.image_upload label{
+    display: flex;
+    cursor: pointer;
+}
+
+.image_upload > input {
+    display: none;
+}
+
+.image_upload img{
+    width: 50px;
+    height: 37px;
 }

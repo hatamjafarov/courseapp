@@ -1,10 +1,7 @@
 import classes from "./CourseNavbar.module.css";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const CourseNavbar = () => {
-    const router = useRouter();
-
     return (
         <div className={classes.navbar}>
             <ul>

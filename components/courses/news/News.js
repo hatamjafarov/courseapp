@@ -50,7 +50,7 @@ const News = () => {
 
     return (
         <div>
-            {ctx.isLoggedin ? (
+            {ctx.isLoggedin && ctx.userActivity === "teacher" ? (
                 <div>
                     <form>
                         <input type="text" placeholder="title" ref={titleRef} />
@@ -59,7 +59,7 @@ const News = () => {
                     </form>
                 </div>
             ) : (
-                <h2>Login in please</h2>
+                <h2>Login as teacher </h2>
             )}
 
             <div>news list</div>

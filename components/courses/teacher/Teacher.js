@@ -28,21 +28,37 @@ const Teacher = () => {
     }, []);
 
     return (
-        <div className={classes.teacherPage}>
-            <h2>Teacher</h2>
-            <div className={classes.teachers}>
-                {teachers ? (
-                    teachers.map((teacher) => (
-                        <div className={classes.teacher} key={teacher.username}>
-                            <h2>Name: {teacher.name}</h2>
-                            <p>Surname: {teacher.surname}</p>
-                            <img src={teacher.image} alt="" />
-                        </div>
-                    ))
-                ) : (
-                    <h2>loading</h2>
-                )}
-            </div>
+        <div style={{ textAlign: "center" }}>
+            {teachers ? (
+                <div className={classes.teacherPage}>
+                    <h2>Teacher</h2>
+                    <div className={classes.teachers}>
+                        {teachers.map((teacher) => (
+                            <div
+                                className={classes.teacher}
+                                key={teacher.username}
+                            >
+                                <h2>Name: {teacher.name}</h2>
+                                <p>Surname: {teacher.surname}</p>
+                                <img src={teacher.image} alt="" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                <div style={{ textAlign: "center" }}>
+                    <div className="lds-roller">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

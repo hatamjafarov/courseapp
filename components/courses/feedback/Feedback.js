@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
 import Context from "../../../store/context";
-import classes from './Feedback.module.css';
+import classes from "./Feedback.module.css";
 
 const Feedback = () => {
     const inputRef = useRef();
@@ -33,9 +33,7 @@ const Feedback = () => {
             }
         ).then((response) =>
             response.status === 200
-                ? router.push(
-                      `http://localhost:3000/courses/course?name=${subject}`
-                  )
+                ? router.push(`http://localhost:3000/courses/info`)
                 : null
         );
     };

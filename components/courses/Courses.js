@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import Context from "../../store/context";
 import classes from "./Courses.module.css";
 
@@ -35,47 +35,63 @@ const Courses = () => {
         <div className={classes.all_courses}>
             <h2>All Courses</h2>
 
-            <div className={classes.courses}>
-                {courses
-                    ? Object.keys(courses).map((course) => {
-                          const getCount = () => {
-                              let oldCourse;
-                              partArray.forEach((v) => {
-                                  v === course && num++;
-                                  if (oldCourse !== course) {
-                                      num = 0;
-                                  }
-                                  oldCourse = course;
-                              });
-                          };
-                          getCount();
-                          return (
-                              <Link
-                                  href={{
-                                      pathname: `/courses/course`,
-                                      query: { name: course },
-                                  }}
-                                  key={course}
+            <Fragment>
+                {courses ? (
+                    <div className={classes.courses}>
+                        {Object.keys(courses).map((course) => {
+                            let oldCourse;
+                            partArray.forEach((v) => {
+                                v === course && num++;
+                                if (oldCourse !== course) {
+                                    num = 0;
+                                }
+                                oldCourse = course;
+                            });
 
-                                  //   href="/courses/[course]"
-                                  //   as={`/courses/${course}`}
-                              >
-                                  <div
-                                      className={classes.course}
-                                      onClick={() => {
-                                          ctx.getCoursePath(course);
-                                      }}
-                                  >
-                                      <h2>{course}</h2>
-                                      <p>{courses[course].description}</p>
-                                      <img src={courses[course].image} alt="" />
-                                      <p>Participant: {num}</p>
-                                  </div>
-                              </Link>
-                          );
-                      })
-                    : <h1>Loading...</h1>}
-            </div>
+                            return (
+                                <Link
+                                    href={{
+                                        pathname: `/courses/course`,
+                                        query: { name: course },
+                                    }}
+                                    key={course}
+
+                                    //   href="/courses/[course]"
+                                    //   as={`/courses/${course}`}
+                                >
+                                    <div
+                                        className={classes.course}
+                                        onClick={() => {
+                                            ctx.getCoursePath(course);
+                                        }}
+                                    >
+                                        <h2>{course}</h2>
+                                        <p>{courses[course].description}</p>
+                                        <img
+                                            src={courses[course].image}
+                                            alt=""
+                                        />
+                                        <p>Participant: {num}</p>
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <div style={{ textAlign: "center" }}>
+                        <div className="lds-roller">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                )}
+            </Fragment>
         </div>
     );
 };

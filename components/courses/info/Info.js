@@ -29,7 +29,7 @@ const Info = () => {
 
     return (
         <div className={classes.section}>
-            <h2>About Course</h2>
+            <h2 style={{textAlign: "center"}}>About Course</h2>
             <div>{about}</div>
             <div>
                 <h4>Comments:</h4>

@@ -32,6 +32,18 @@ const Login = (props) => {
                 responseData[elem].signupData.pass == loginData.pass
         );
         if (checker.length === 1) {
+            if (responseData[checker].signupData.image) {
+                Object.keys(responseData[checker].signupData.image).map(
+                    (val) => {
+                        ctx.getUserImg(
+                            responseData[checker].signupData.image[val].formData
+                        );
+                        ctx.setImgId(
+                            val
+                        )
+                    }
+                );
+            }
             router.push("/");
             setSuccess(true);
             setLogin(true);
